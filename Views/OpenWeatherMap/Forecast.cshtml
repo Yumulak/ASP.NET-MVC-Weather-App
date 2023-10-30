@@ -1,0 +1,19 @@
+﻿@model ASP.NET_MVC_WeatherApp.Models.OpenWeatherMap
+@using System.Web;
+@using Microsoft.AspNetCore.Html;
+
+@{
+    ViewData["Title"] = "Forecast";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Forecast</h1>
+
+<div>
+    <h4>Current</h4>
+    <hr />
+    <div id="message">@(new HtmlString(Model.apiResponse))</div>
+</div>
+<div>
+    <a asp-action="Index" class="btn btn-primary">Back</a>
+</div>
