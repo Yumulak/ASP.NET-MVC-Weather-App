@@ -7,40 +7,32 @@ document.addEventListener("DOMContentLoaded", function () {
     const authTokenKey = "authToken";
     // Function to fetch the auth token
     function fetchAuthToken() {
-        // Check if the authToken is already in local storage
-        const storedAuthToken = localStorage.getItem(authTokenKey);
-
-        if (storedAuthToken) {
-            // If it's already stored, you can use it directly
-            return Promise.resolve(storedAuthToken);
-        } else {
-            // If not in local storage, make an API request to get it
-            return fetch("https://www.universal-tutorial.com/api/getaccesstoken", {
-                method: "GET",
-                headers: {
-                    "Accept": "application/json",
-                    "api-token": "0IWTOricjda0T_JG1bOxmr8D1OfX2DHKWuJbjnZdC6uYMnM3-OP1afaVMZtRYAG6NSE",
-                    "user-email": "austinrhodes462@gmail.com"
+        // Make an API request to get a new auth token every time
+        return fetch("https://www.universal-tutorial.com/api/getaccesstoken", {
+            method: "GET",
+            headers: {
+                "Accept": "application/json",
+                "api-token": "0IWTOricjda0T_JG1bOxmr8D1OfX2DHKWuJbjnZdC6uYMnM3-OP1afaVMZtRYAG6NSE",
+                "user-email": "austinrhodes462@gmail.com"
+            }
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Failed to fetch auth token");
                 }
+                return response.json();
             })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error("Failed to fetch auth token");
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    // Store the auth token in local storage
-                    const authToken = data.auth_token;
-                    localStorage.setItem(authTokenKey, authToken);
-                    return authToken;
-                })
-                .catch(error => {
-                    console.error("Error fetching auth token:", error);
-                    return null;
-                });
-        }
-    }
+            .then(data => {
+                // Store the auth token in local storage
+                const authToken = data.auth_token;
+                localStorage.setItem(authTokenKey, authToken);
+                return authToken;
+            })
+            .catch(error => {
+                console.error("Error fetching auth token:", error);
+                return null;
+            });
+    }    
 
     // Call the fetchAuthToken function and use the token as needed
     fetchAuthToken()
@@ -58,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const stateSelect = document.getElementById("stateSelect");
     const citySelect = document.getElementById("citySelect");
 
-    //const authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJfZW1haWwiOiJhdXN0aW5yaG9kZXM0NjJAZ21haWwuY29tIiwiYXBpX3Rva2VuIjoiMElXVE9yaWNqZGEwVF9KRzFiT3htcjhEMU9mWDJESEtXdUpiam5aZEM2dVlNbk0zLU9QMWFmYVZNWnRSWUFHNk5TRSJ9LCJleHAiOjE2OTg3NzcxOTF9.rl12xWEp7UqmkMCIM1u2YvvtRg-FeX3zQh6_0Gp0tNo";
+    
     const BASE_URL = "https://www.universal-tutorial.com/api/states/";
     // Function to populate the country dropdown with options from the API
     function populateCountries(authToken) {
@@ -74,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(data => {
                 // Clear the current options
                 countrySelect.innerHTML = "<option value=''>Select a country</option>";
-
+                console.log(data);
                 // Populate the country dropdown with options from the API
                 data.forEach(country => {
                     const option = document.createElement("option");
