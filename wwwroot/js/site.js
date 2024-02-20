@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 console.error("Error fetching countries:", error);
             });
     }
-
+    // Function to populate the state dropdown with options from the API based on the country
     function populateStates() {
         const selectedCountry = countrySelect.value;
         stateSelect.innerHTML = "<option value=''>Select a state</option>";
@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Function to populate the city dropdown based on the selected state
+    // Function to populate the city dropdown with options from the API based on the state
     function populateCities() {
         const selectedState = stateSelect.value;
         citySelect.innerHTML = "<option value=''>Select a city</option>";

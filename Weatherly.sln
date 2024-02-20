@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Weatherly", "Weatherly.csproj", "{FA052513-1E73-4C3E-8910-CEF4EA2B3CAB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Weatherly", "Weatherly.csproj", "{FA052513-1E73-4C3E-8910-CEF4EA2B3CAB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherlyTests", "..\WeatherlyTests\WeatherlyTests.csproj", "{3D2E90D2-E729-4420-A67A-67BA2503E059}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherlyIntegrationTests", "..\WeatherlyIntegrationTests\WeatherlyIntegrationTests.csproj", "{9F9AEFC6-A550-4F80-A5C3-7B6AC074ECDC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{FA052513-1E73-4C3E-8910-CEF4EA2B3CAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA052513-1E73-4C3E-8910-CEF4EA2B3CAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA052513-1E73-4C3E-8910-CEF4EA2B3CAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D2E90D2-E729-4420-A67A-67BA2503E059}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D2E90D2-E729-4420-A67A-67BA2503E059}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D2E90D2-E729-4420-A67A-67BA2503E059}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D2E90D2-E729-4420-A67A-67BA2503E059}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F9AEFC6-A550-4F80-A5C3-7B6AC074ECDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F9AEFC6-A550-4F80-A5C3-7B6AC074ECDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F9AEFC6-A550-4F80-A5C3-7B6AC074ECDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F9AEFC6-A550-4F80-A5C3-7B6AC074ECDC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

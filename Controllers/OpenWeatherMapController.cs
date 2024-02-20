@@ -26,11 +26,11 @@ namespace ASP.NET_MVC_WeatherApp.Controllers
 	{
 
 		HttpClient client = new HttpClient();
-		[Authorize]
+		//[Authorize]
 		[HttpGet]
 		public IActionResult Index()
 		{			
-			return View();
+			return View("Index");
 		}	
 		public OpenWeatherMap FillCity()
 		{
@@ -97,7 +97,7 @@ namespace ASP.NET_MVC_WeatherApp.Controllers
 				
 				string apiKey = "38c0927bf0a04a186a70bcaa540afe92";
 
-				string url = $"https://api.openweathermap.org/data/3.0/onecall?lat={geocoder.lat}&lon={geocoder.lon}&exclude=hourly,minutely,daily,alerts,timezone,timezone_offset&appid={apiKey}&units=imperial";
+				string url = $"https://api.openweathermap.org/data/3.0/onecall?lat={geocoder.lat}&lon={geocoder.lon}&exclude=hourly,minutely,alerts,timezone,timezone_offset&appid={apiKey}&units=imperial";
 
                 HttpResponseMessage responseBody = await client.GetAsync(url);
 
@@ -109,16 +109,30 @@ namespace ASP.NET_MVC_WeatherApp.Controllers
 					var weatherIcon = $"https://openweathermap.org/img/wn/{rootObject.current.weather[0].icon}@2x.png";
 					
 					StringBuilder sb = new StringBuilder();
-					sb.Append("<table><tr><th>Weather Description</th></tr>");
+					sb.Append("<table><tr><th>Current Weather Description</th></tr>");
 					sb.Append("<tr><td>Coordinates: </td><td>" + rootObject.lat +", "+ rootObject.lon + "</td></tr>");
 					sb.Append("<tr><td>City/State: </td><td>" + geocoder.cityName +", "+ geocoder.stateCode + "</td></tr>");
 					sb.Append("<tr><td>Country/Major City: </td><td>" + rootObject.timezone + "</td></tr>");
 					sb.Append("<tr><td>Wind: </td><td>" + rootObject.current.wind_speed + " MPH</td></tr>");
 					sb.Append("<tr><td>Temperature: </td><td>" + rootObject.current.temp + " °F</td></tr>");
 					sb.Append("<tr><td>Humidity: </td><td>" + rootObject.current.humidity + "</td></tr>");
-					sb.Append("<tr><td>Weather: </td><td>" + rootObject.current.weather[0].description.ToUpper() +" "+ $"<img src='{weatherIcon}'  >" + "</td></tr>");
-					sb.Append("</table>");                   
+					sb.Append("<tr><td>Weather: </td><td>" + rootObject.current.weather[0].description.ToUpper() +" "+ $"<img src='{weatherIcon}'  >" + "</td></tr>");					
+					sb.Append("</table>");
+                    sb.Append("<table><tr><th>Daily Weather Description</th></tr>");
+					sb.Append("<tr><td>Day 1: </td><td>" + rootObject.daily[0].weather[0].description.ToUpper() + "</td></tr>");
+					sb.Append("<tr><td>Day 2: </td><td>" + rootObject.daily[1].weather[0].description.ToUpper() + "</td></tr>");
+					sb.Append("<tr><td>Day 3: </td><td>" + rootObject.daily[2].weather[0].description.ToUpper() + "</td></tr>");
+					sb.Append("<tr><td>Day 4: </td><td>" + rootObject.daily[3].weather[0].description.ToUpper() + "</td></tr>");
+					sb.Append("<tr><td>Day 5: </td><td>" + rootObject.daily[4].weather[0].description.ToUpper() + "</td></tr>");
+					sb.Append("<tr><td>Day 6: </td><td>" + rootObject.daily[5].weather[0].description.ToUpper() + "</td></tr>");
+					sb.Append("<tr><td>Day 7: </td><td>" + rootObject.daily[6].weather[0].description.ToUpper() + "</td></tr>");
+					sb.Append("<tr><td>Day 8: </td><td>" + rootObject.daily[7].weather[0].description.ToUpper() + "</td></tr>");
+                    sb.Append("</table>");
                     openWeatherMap.apiResponse = sb.ToString();
+                    //encode url parameter
+                    //openWeatherMap.apiResponse = HttpUtility.UrlEncode(sb.ToString());
+					//encode url parameter to base64
+					openWeatherMap.apiResponse = Convert.ToBase64String(Encoding.UTF8.GetBytes(openWeatherMap.apiResponse));
 				}								
 			}
             else

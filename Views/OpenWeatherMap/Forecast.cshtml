@@ -1,6 +1,7 @@
 ﻿@model ASP.NET_MVC_WeatherApp.Models.OpenWeatherMap
 @using System.Web;
 @using Microsoft.AspNetCore.Html;
+@using System.Text;
 
 @{
     ViewData["Title"] = "Forecast";
@@ -9,14 +10,19 @@
 
 <h1>Forecast</h1>
 
+@* <div>
+    <h4>Current</h4>
+    <hr />
+    <div id="message">@(new HtmlString(@HttpUtility.UrlDecode(Model.apiResponse)))</div>
+</div> *@
+
 <div>
     <h4>Current</h4>
     <hr />
-    <div id="message">@(new HtmlString(Model.apiResponse))</div>
+    <div id="message">@(new HtmlString(@Encoding.UTF8.GetString(Convert.FromBase64String(Model.apiResponse))))</div>
 </div>
+
 <div>
     <a asp-action="Index" class="btn btn-primary">Back</a>
 </div>
-@* <div class="form-group">
-    <input type="submit" value="Save Location" class="btn btn-primary" id="saveLocationButton" />
-</div> *@
+
