@@ -5,10 +5,7 @@ VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Weatherly", "Weatherly.csproj", "{FA052513-1E73-4C3E-8910-CEF4EA2B3CAB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherlyTests", "..\WeatherlyTests\WeatherlyTests.csproj", "{3D2E90D2-E729-4420-A67A-67BA2503E059}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherlyIntegrationTests", "..\WeatherlyIntegrationTests\WeatherlyIntegrationTests.csproj", "{9F9AEFC6-A550-4F80-A5C3-7B6AC074ECDC}"
-EndProject
+
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +27,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3D2E90D2-E729-4420-A67A-67BA2503E059} = {9B038BFD-9CCC-448F-8EB5-564731C215FA}
+		{9F9AEFC6-A550-4F80-A5C3-7B6AC074ECDC} = {560E7B31-18D0-4C06-8D8E-03208F8515ED}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C32FB9A8-752D-43DA-BD89-554266E718C1}
