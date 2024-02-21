@@ -5,9 +5,9 @@ VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Weatherly", "Weatherly.csproj", "{FA052513-1E73-4C3E-8910-CEF4EA2B3CAB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherlyTests", "..\WeatherlyTests\WeatherlyTests.csproj", "{3D2E90D2-E729-4420-A67A-67BA2503E059}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherlyTests", "WeatherlyTests.csproj", "{3D2E90D2-E729-4420-A67A-67BA2503E059}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherlyIntegrationTests", "..\WeatherlyIntegrationTests\WeatherlyIntegrationTests.csproj", "{9F9AEFC6-A550-4F80-A5C3-7B6AC074ECDC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherlyIntegrationTests", "WeatherlyIntegrationTests.csproj", "{9F9AEFC6-A550-4F80-A5C3-7B6AC074ECDC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
