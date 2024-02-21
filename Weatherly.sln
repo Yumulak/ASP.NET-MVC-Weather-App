@@ -5,10 +5,7 @@ VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Weatherly", "Weatherly.csproj", "{FA052513-1E73-4C3E-8910-CEF4EA2B3CAB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherlyIntegrationTests", "..\WeatherlyIntegrationTests\WeatherlyIntegrationTests.csproj", "{7EED78BD-BA9A-4280-908E-DCCD1B221EC2}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherlyTests", "..\WeatherlyTests\WeatherlyTests.csproj", "{EA417A30-61AC-47A5-877E-4AE2FE4083F6}"
-EndProject
+
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
