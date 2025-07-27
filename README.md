@@ -1,6 +1,6 @@
 # ASP.NET MVC Weather App
 
-#*Currently stopped to avoid extra charges*
+# *Currently stopped to avoid extra charges*
 
 A web app made with ASP.NET that uses the OpenWeatherMap API to get current weather information.
 ## Video
